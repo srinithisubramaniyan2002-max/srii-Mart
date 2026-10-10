@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srinidhi Mart - Premium Mobile Phones Shopping</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+</head>
+<body>
+
+  <!-- ====================================================================
+       1. TOP ANNOUNCEMENT BAR
+       ==================================================================== -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span>🚀 <strong>FESTIVE SALE LIVE:</strong> Use code <span class="highlight">WELCOME10</span> for 10% OFF on all mobiles!</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="#brands-strip">Top Brands</a>
+        <a href="javascript:void(0)" onclick="app.openOrdersModal()">Track Order</a>
+        <a href="#help-faq">Support: 1800-SRINIDHI</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       2. HEADER & NAVIGATION BAR
+       ==================================================================== -->
+  <header class="header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <div class="logo-badge">📱</div>
+        <div>Srinidhi<span>Mart</span></div>
+      </a>
+
+      <!-- Desktop Search Bar -->
+      <div class="search-container">
+        <form class="search-form" id="search-form">
+          <input type="text" id="search-input" placeholder="Search iPhone 15, Galaxy S24, OnePlus 12...">
+          <button type="submit" class="search-btn" title="Search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- User State / Sign In -->
+        <div id="user-nav-container">
+          <button class="nav-btn" onclick="auth.openModal('login')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Sign In</span>
+          </button>
+        </div>
+
+        <!-- Orders Button -->
+        <button class="nav-btn" onclick="app.openOrdersModal()" title="My Orders">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="desktop-only">Orders</span>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button class="nav-btn cart-btn" onclick="cart.openDrawer()" title="View Cart">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span>Cart</span>
+          <span class="badge-counter" id="cart-counter-badge" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="mobile-search-bar" style="display: none;">
+      <form class="search-form" id="search-form-mobile">
+        <input type="text" id="search-input-mobile" placeholder="Search smartphones by brand or model...">
+        <button type="submit" class="search-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       3. HERO BANNER
+       ==================================================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✨ INDIA'S TRUSTED SMARTPHONE DESTINATION</div>
+        <h1 class="hero-title">Experience the Next Gen <span class="highlight-text">Smartphones</span></h1>
+        <p class="hero-subtitle">
+          Discover latest flagships from Apple, Samsung, OnePlus & Google with 100% genuine warranty, superfast delivery & exclusive festival deals.
+        </p>
+        <div class="hero-actions">
+          <a href="#products-section" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
+            Explore All Mobiles
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <button class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;" onclick="app.filterByBrand('Apple'); window.scrollTo({top: 600, behavior: 'smooth'});">
+            View Apple iPhones
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Original Devices</p>
+          </div>
+          <div class="stat-item">
+            <h3>₹0</h3>
+            <p>Free Express Delivery</p>
+          </div>
+          <div class="stat-item">
+            <h3>7 Days</h3>
+            <p>Easy Replacement</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Featured Spotlight Card -->
+      <div class="hero-banner-card">
+        <span class="hero-phone-badge">🔥 HOT SELLER</span>
+        <img class="hero-phone-img" src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80" alt="iPhone 15 Pro Max">
+        <h3 style="font-size: 1.25rem; font-weight: 700;">iPhone 15 Pro Max</h3>
+        <p style="font-size: 0.85rem; color: #cbd5e1; margin: 0.35rem 0 1rem;">A17 Pro Chip • Grade 5 Titanium</p>
+        <div style="display: flex; justify-content: center; gap: 0.75rem; align-items: center;">
+          <span style="font-size: 1.35rem; font-weight: 800; color: #fff;">₹1,54,900</span>
+          <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="app.viewProductDetails(1)">
+            View Specs
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       4. VALUE PROPOSITION STRIP
+       ==================================================================== -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-info">
+          <h4>Free Express Shipping</h4>
+          <p>On all mobile orders over ₹999</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <div class="trust-info">
+          <h4>1 Year Brand Warranty</h4>
+          <p>100% authentic sealed retail boxes</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔄</div>
+        <div class="trust-info">
+          <h4>7-Day Replacement</h4>
+          <p>Hassle-free return & replacement</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">💳</div>
+        <div class="trust-info">
+          <h4>Flexible Payment</h4>
+          <p>UPI, Cards, NetBanking & COD</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       5. BRAND FILTER PILLS
+       ==================================================================== -->
+  <section class="brands-section" id="brands-strip">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Shop by Top Brands</h2>
+          <p class="section-desc">Select your favorite manufacturer to filter smartphones instantly</p>
+        </div>
+      </div>
+      <!-- Brand filter buttons populated by JS -->
+      <div class="brand-pills" id="brand-pills-container">
+        <!-- Dynamically rendered pills -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       6. PRODUCTS CATALOG & CONTROLS
+       ==================================================================== -->
+  <main class="products-section" id="products-section">
+    <div class="container">
+      <!-- Toolbar with count and sorting -->
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <span>Showing <strong id="products-count">12</strong> Premium Smartphones</span>
+        </div>
+        <div class="toolbar-right">
+          <label for="sort-select" style="font-size: 0.85rem; font-weight: 600; color: #475569;">Sort By:</label>
+          <select id="sort-select" class="sort-select">
+            <option value="default">Featured & Latest</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating_desc">Highest Customer Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Dynamically loaded products -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       7. PRODUCT DETAILS MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="product-details-modal">
+    <div class="modal-container product-modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Mobile Phone Details</h3>
+        <button class="modal-close" onclick="app.closeProductDetailsModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-product-grid">
+          <div class="modal-product-gallery">
+            <img id="modal-p-img" class="modal-product-img" src="" alt="Phone Image">
+          </div>
+          <div class="modal-product-info">
+            <div id="modal-p-brand" class="product-brand" style="font-size: 0.85rem;"></div>
+            <h3 id="modal-p-name"></h3>
+            <div id="modal-p-rating" class="product-rating" style="color: #f59e0b; font-weight: 700; margin-bottom: 0.75rem;"></div>
+
+            <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem;">
+              <span id="modal-p-price" style="font-size: 1.6rem; font-weight: 800; color: #0f172a;"></span>
+              <span id="modal-p-original-price" style="text-decoration: line-through; color: #64748b;"></span>
+            </div>
+
+            <p id="modal-p-desc" style="color: #475569; font-size: 0.925rem; line-height: 1.6; margin-bottom: 1.25rem;"></p>
+
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Key Technical Specifications:</h4>
+            <table class="modal-specs-table">
+              <tbody>
+                <tr><td>RAM</td><td id="modal-p-ram">-</td></tr>
+                <tr><td>Internal Storage</td><td id="modal-p-storage">-</td></tr>
+                <tr><td>Rear Camera System</td><td id="modal-p-camera">-</td></tr>
+                <tr><td>Battery Capacity</td><td id="modal-p-battery">-</td></tr>
+                <tr><td>Processor</td><td id="modal-p-processor">-</td></tr>
+                <tr><td>Availability</td><td id="modal-p-stock" style="color: #10b981; font-weight: 700;">In Stock</td></tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+              <button class="btn-primary" style="flex: 1; padding: 0.75rem;" onclick="app.addViewingProductToCart()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                Add to Cart
+              </button>
+              <button class="btn-outline" onclick="app.closeProductDetailsModal()">
+                Continue Shopping
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       8. SHOPPING CART DRAWER
+       ==================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="cart.closeDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 style="font-size: 1.15rem; font-weight: 700;">Your Shopping Cart</h3>
+      <button class="modal-close" onclick="cart.closeDrawer()">✕</button>
+    </div>
+
+    <!-- Items Container -->
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Cart items rendered here -->
+    </div>
+
+    <!-- Summary & Checkout Footer -->
+    <div class="cart-drawer-footer" id="cart-drawer-summary" style="display: none;">
+      <!-- Coupon Box -->
+      <div class="coupon-box" style="margin-bottom: 1rem;">
+        <input type="text" id="cart-coupon-input" placeholder="Coupon (e.g. WELCOME10)" style="flex:1; text-transform: uppercase;">
+        <button class="btn-outline" style="padding: 0.5rem 0.85rem;" onclick="cart.applyCoupon(document.getElementById('cart-coupon-input').value)">Apply</button>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val">₹0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>GST (5%)</span>
+        <span id="cart-tax-val">₹0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Shipping (Orders > ₹999 FREE)</span>
+        <span id="cart-shipping-val" style="color: #10b981; font-weight: 600;">FREE</span>
+      </div>
+      <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: #10b981; font-weight: 600;">
+        <span>Promo Discount</span>
+        <span id="cart-discount-val">-₹0</span>
+      </div>
+      <div class="cart-summary-line total">
+        <span>Total Payable</span>
+        <span id="cart-total-val">₹0</span>
+      </div>
+
+      <button class="btn-primary cart-checkout-btn" onclick="checkout.openModal()">
+        Proceed to Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       9. AUTH MODAL (LOGIN / REGISTER)
+       ==================================================================== -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-container" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Account Access</h3>
+        <button class="modal-close" onclick="auth.closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login-btn" onclick="auth.switchTab('login')">Sign In</button>
+          <button class="auth-tab" id="tab-register-btn" onclick="auth.switchTab('register')">Register New Account</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form-container">
+          <form onsubmit="auth.handleLogin(event)">
+            <div class="form-group">
+              <label class="form-label" for="login-email">Email Address</label>
+              <input type="email" id="login-email" class="form-input" required placeholder="user@srinidhimart.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password</label>
+              <input type="password" id="login-password" class="form-input" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary" id="login-submit-btn" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem;">
+              Sign In
+            </button>
+          </form>
+
+          <!-- Quick Demo Account Fill -->
+          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; text-align: center;">
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.6rem;">⚡ Beginner Testing Shortcut:</p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center;">
+              <button type="button" class="btn-outline" style="font-size: 0.775rem; padding: 0.35rem 0.7rem;" onclick="auth.fillDemoAccount('user')">
+                Fill Demo User
+              </button>
+              <button type="button" class="btn-outline" style="font-size: 0.775rem; padding: 0.35rem 0.7rem;" onclick="auth.fillDemoAccount('admin')">
+                Fill Demo Admin
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form-container" style="display: none;">
+          <form onsubmit="auth.handleRegister(event)">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" class="form-input" required placeholder="Rahul Sharma">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email Address</label>
+              <input type="email" id="reg-email" class="form-input" required placeholder="rahul@example.com">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="reg-password">Password</label>
+                <input type="password" id="reg-password" class="form-input" required minlength="6" placeholder="Min 6 chars">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-phone">Phone Number</label>
+                <input type="tel" id="reg-phone" class="form-input" placeholder="+91 9876543210">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-address">Delivery Address</label>
+              <textarea id="reg-address" class="form-input" rows="2" placeholder="House no, Street, Area"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="reg-submit-btn" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem;">
+              Create Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       10. CHECKOUT MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-container checkout-modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Complete Your Order</h3>
+        <button class="modal-close" onclick="checkout.closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="checkout.handlePlaceOrder(event)">
+          <div class="checkout-grid">
+            <!-- Left: Shipping & Payment -->
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; color: #0f172a;">1. Shipping Address</h4>
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" id="checkout-name" class="form-input" required placeholder="Rahul Sharma">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" id="checkout-email" class="form-input" required placeholder="rahul@example.com">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" id="checkout-phone" class="form-input" required placeholder="+91 9876543210">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Street Address *</label>
+                <textarea id="checkout-address" class="form-input" rows="2" required placeholder="Apartment / Flat, Street, Landmark"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">City *</label>
+                  <input type="text" id="checkout-city" class="form-input" required value="Bengaluru">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">State *</label>
+                  <input type="text" id="checkout-state" class="form-input" required value="Karnataka">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Postal / PIN Code *</label>
+                <input type="text" id="checkout-pincode" class="form-input" required value="560103">
+              </div>
+
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: #0f172a;">2. Payment Method (Demo)</h4>
+              <div class="payment-methods-grid">
+                <div class="payment-method-card selected" data-method="UPI" onclick="checkout.selectPayment('UPI')">
+                  <span style="font-size: 1.3rem;">📱</span>
+                  <div>
+                    <strong style="font-size: 0.85rem; display:block;">UPI / QR</strong>
+                    <span style="font-size: 0.75rem; color: #64748b;">GPay, PhonePe, Paytm</span>
+                  </div>
+                </div>
+                <div class="payment-method-card" data-method="CARD" onclick="checkout.selectPayment('CARD')">
+                  <span style="font-size: 1.3rem;">💳</span>
+                  <div>
+                    <strong style="font-size: 0.85rem; display:block;">Cards</strong>
+                    <span style="font-size: 0.75rem; color: #64748b;">Visa, MasterCard, RuPay</span>
+                  </div>
+                </div>
+                <div class="payment-method-card" data-method="COD" onclick="checkout.selectPayment('COD')">
+                  <span style="font-size: 1.3rem;">💵</span>
+                  <div>
+                    <strong style="font-size: 0.85rem; display:block;">Cash on Delivery</strong>
+                    <span style="font-size: 0.75rem; color: #64748b;">Pay at doorstep</span>
+                  </div>
+                </div>
+                <div class="payment-method-card" data-method="NETBANKING" onclick="checkout.selectPayment('NETBANKING')">
+                  <span style="font-size: 1.3rem;">🏦</span>
+                  <div>
+                    <strong style="font-size: 0.85rem; display:block;">Net Banking</strong>
+                    <span style="font-size: 0.75rem; color: #64748b;">All Indian Banks</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Demo Notice -->
+              <div id="payment-upi-details" style="background: #f1f5f9; padding: 0.75rem; border-radius: 8px; font-size: 0.8rem; color: #475569;">
+                ℹ️ <strong>Demo Checkout:</strong> No real payment is deducted. Clicking "Place Order" simulates a verified transaction and generates a confirmed order in the database.
+              </div>
+              <div id="payment-card-details" style="display: none; background: #f1f5f9; padding: 0.75rem; border-radius: 8px; font-size: 0.8rem; color: #475569;">
+                ℹ️ <strong>Demo Card Verification:</strong> Test card simulation enabled. No card numbers required.
+              </div>
+            </div>
+
+            <!-- Right: Order Summary Breakdown -->
+            <div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Order Summary</h4>
+                <div id="checkout-items-preview" style="max-height: 220px; overflow-y: auto; margin-bottom: 1rem;">
+                  <!-- Items summary preview -->
+                </div>
+
+                <div style="border-top: 1px solid #e2e8f0; padding-top: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.875rem;">
+                  <div style="display: flex; justify-content: space-between; color: #64748b;">
+                    <span>Subtotal:</span>
+                    <span id="checkout-subtotal">₹0</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #64748b;">
+                    <span>GST (5%):</span>
+                    <span id="checkout-tax">₹0</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: #64748b;">
+                    <span>Delivery:</span>
+                    <span id="checkout-shipping" style="color: #10b981; font-weight: 600;">FREE</span>
+                  </div>
+                  <div id="checkout-discount-row" style="display: none; justify-content: space-between; color: #10b981; font-weight: 600;">
+                    <span>Discount:</span>
+                    <span id="checkout-discount">-₹0</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; color: #0f172a; border-top: 1px dashed #cbd5e1; padding-top: 0.6rem; margin-top: 0.35rem;">
+                    <span>Total Amount:</span>
+                    <span id="checkout-total">₹0</span>
+                  </div>
+                </div>
+
+                <button type="submit" id="place-order-btn" class="btn-primary" style="width: 100%; padding: 0.85rem; margin-top: 1.25rem; font-size: 0.95rem;">
+                  Place Order (Demo Payment)
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       11. ORDER CONFIRMATION MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="order-confirmation-modal">
+    <div class="modal-container" style="max-width: 600px;">
+      <div class="modal-body order-success-card">
+        <div class="success-icon-wrap">✓</div>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a;">Thank You for Your Order!</h2>
+        <p style="color: #64748b; font-size: 0.9rem; margin-top: 0.35rem;">Your mobile phone order has been confirmed and is being processed.</p>
+        
+        <div class="order-number-pill">
+          Order ID: <span id="conf-order-number">SNM-20261010-8472</span>
+        </div>
+
+        <div class="order-summary-box">
+          <div style="font-size: 0.85rem; margin-bottom: 0.65rem;">
+            <strong>Recipient:</strong> <span id="conf-customer-name">-</span> (<span id="conf-customer-email">-</span>)
+          </div>
+          <div style="font-size: 0.85rem; margin-bottom: 0.65rem;">
+            <strong>Delivery Address:</strong> <span id="conf-shipping-address">-</span>
+          </div>
+          <div style="font-size: 0.85rem; margin-bottom: 0.65rem;">
+            <strong>Estimated Delivery:</strong> <span id="conf-delivery-date" style="color: #059669; font-weight: 700;">-</span>
+          </div>
+          <div style="font-size: 0.85rem; margin-bottom: 0.65rem;">
+            <strong>Payment Status:</strong> <span id="conf-payment-method" style="color: #4f46e5; font-weight: 600;">-</span>
+          </div>
+
+          <div style="font-weight: 700; font-size: 0.85rem; margin: 1rem 0 0.5rem; color: #0f172a;">Ordered Items:</div>
+          <div id="conf-order-items"></div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-top: 0.85rem; padding-top: 0.5rem; border-top: 1px dashed #cbd5e1;">
+            <span>Total Paid:</span>
+            <span id="conf-order-total">₹0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: center;">
+          <button class="btn-primary" onclick="checkout.closeConfirmationModal(); window.scrollTo({top: 0, behavior: 'smooth'});">
+            Continue Shopping
+          </button>
+          <button class="btn-outline" onclick="window.print()">
+            🖨️ Print Receipt
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       12. MY ORDERS MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="my-orders-modal">
+    <div class="modal-container" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3 class="modal-title">My Order History</h3>
+        <button class="modal-close" onclick="app.closeOrdersModal()">✕</button>
+      </div>
+      <div class="modal-body" id="orders-list-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       13. FOOTER
+       ==================================================================== -->
+  <footer class="footer" id="help-faq">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span style="font-size: 1.3rem;">📱</span> Srinidhi Mart
+          </div>
+          <p class="footer-desc">
+            Srinidhi Mart is India's premier online destination for genuine, authorized smartphones. From high-end flagship devices to budget champions, we deliver technology with trust.
+          </p>
+          <div style="font-size: 0.85rem; color: #94a3b8;">
+            📍 Indiranagar, Bengaluru, Karnataka, India - 560038<br>
+            ✉️ support@srinidhimart.com | 📞 1800-SRINIDHI
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Top Brands</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('Apple')">Apple iPhones</a></li>
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('Samsung')">Samsung Galaxy</a></li>
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('OnePlus')">OnePlus Devices</a></li>
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('Google')">Google Pixel</a></li>
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('Nothing')">Nothing Phone</a></li>
+            <li><a href="javascript:void(0)" onclick="app.filterByBrand('Xiaomi')">Xiaomi & Redmi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="app.openOrdersModal()">Track Your Order</a></li>
+            <li><a href="javascript:void(0)" onclick="auth.openModal('login')">My Account</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Replacement Policy: 7 days free replacement for defective units', 'info')">Replacement Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Warranty: 1 Year Manufacturer Warranty included', 'info')">Warranty Details</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Shipping: Delivered within 3-5 business days across India', 'info')">Shipping Terms</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">100% Safe & Secure</h4>
+          <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
+            All transactions are digitally encrypted. Passwords are protected using military-grade BCrypt hashing algorithms.
+          </p>
+          <div style="background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+            🔒 SSL Encrypted Checkout<br>
+            🛡️ Authorized Brand Partners<br>
+            📦 Tamper-proof Packaging
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Srinidhi Mart. All rights reserved. Crafted with Spring Boot & Modern Web Technologies.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript Modules in Execution Order -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
